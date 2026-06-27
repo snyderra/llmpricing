@@ -154,7 +154,8 @@
     <h2 class="display-6 text-center">Which LLMs are the best value for money?</h2>
     <div id="README" class="my-5 mx-auto" style="max-width: 30rem"></div>
     <div id="chart-sticky">
-      <div class="row align-items-center mt-4">
+      <div id="provider-filter" class="d-flex flex-wrap align-items-center gap-1 mt-4" aria-label="Filter by provider"></div>
+      <div class="row align-items-center mt-2">
         <div class="col-lg-4 col-xl-3 d-flex">
           <div class="dropdown mb-3">
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="quality" data-bs-toggle="dropdown" aria-expanded="false">
@@ -170,8 +171,24 @@
         </div>
         <div class="col-lg-8 col-xl-9 d-flex">
           <label class="form-label text-nowrap me-3" id="date-label" for="date">Month</label>
-          <input type="range" id="date" class="form-range mb-3 me-3 flex-grow-1" min="0" max="100" step="1" value="100">
-          <div class="text-end text-nowrap mb-3">🟢 Best models 🔴 Worst models</div>
+          <input type="range" id="date" class="form-range mb-3 flex-grow-1" min="0" max="100" step="1" value="100">
+        </div>
+      </div>
+      <div class="row align-items-center mt-1 mb-2">
+        <div class="col-12 d-flex flex-wrap align-items-center gap-2">
+          <span class="text-nowrap small text-secondary me-1">Show:</span>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Toggle model categories">
+            <input type="checkbox" class="btn-check" id="show-best" autocomplete="off" checked>
+            <label class="btn btn-outline-success" for="show-best">🟢 Best</label>
+            <input type="checkbox" class="btn-check" id="show-worst" autocomplete="off" checked>
+            <label class="btn btn-outline-danger" for="show-worst">🔴 Worst</label>
+            <input type="checkbox" class="btn-check" id="show-others" autocomplete="off" checked>
+            <label class="btn btn-outline-secondary" for="show-others">⚪ Others</label>
+          </div>
+          <div class="btn-group btn-group-sm ms-auto" role="group" aria-label="Zoom controls">
+            <button type="button" id="zoom-select" class="btn btn-outline-primary">🔍 Select &amp; zoom</button>
+            <button type="button" id="zoom-reset" class="btn btn-outline-secondary" disabled>Reset zoom</button>
+          </div>
         </div>
       </div>
       <div id="chart-area">
